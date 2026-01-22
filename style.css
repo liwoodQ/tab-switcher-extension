@@ -7,21 +7,24 @@
   width: auto; /* 自适应宽度 */
   min-width: auto; /* 移除最小宽度限制 */
   max-width: 90vw;
-  /* 纯白背景 */
-  background: #ffffff;
+  /* 玻璃拟态背景 - 降低不透明度 */
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
   /* 更大的圆角 */
   border-radius: 24px;
-  /* 柔和且深邃的阴影 */
+  /* 柔和且深邃的阴影 + 内描边 */
   box-shadow:
     0 20px 50px rgba(0, 0, 0, 0.15),
-    0 0 0 1px rgba(0, 0, 0, 0.04);
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  /* 添加 1px 白色半透明边框增强质感 */
+  border: 1px solid rgba(255, 255, 255, 0.3);
   z-index: 2147483647; /* Max Z-Index */
   display: flex;
   flex-direction: column;
   padding: 20px; /* 调小内边距 (原 32px) */
   color: #1a1a1a;
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  /* 移除 backdrop-filter，改用纯色背景以获得更清晰的视觉 */
 }
 
 .hidden {
@@ -57,7 +60,7 @@
   flex-direction: column;
   padding: 0;
   border-radius: 12px; /* 调整圆角 */
-  background: #f8f9fa; /* 默认浅灰背景 */
+  background: rgba(255, 255, 255, 0.5); /* 半透明背景 */
   border: 1px solid rgba(0, 0, 0, 0.03);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -67,13 +70,12 @@
 
 /* 选中状态 */
 .tab-item.selected {
-  background: #eef2ff; /* 浅蓝色背景高亮 */
+  background: rgba(59, 130, 246, 0.12); /* 浅蓝色低饱和度背景 */
   /* 蓝色边框 */
-  border-color: #3b82f6;
-  /* 选中时的阴影 - 蓝色光晕 */
+  border-color: rgba(59, 130, 246, 0.3);
+  /* 选中时的阴影 - 柔和光晕 */
   box-shadow:
-    0 0 0 3px rgba(59, 130, 246, 0.15),
-    0 8px 16px rgba(0, 0, 0, 0.1);
+    0 4px 12px rgba(59, 130, 246, 0.15);
   /* 放大效果 */
   transform: translateY(-2px) scale(1.02);
   z-index: 10;
@@ -83,7 +85,7 @@
 .tab-thumbnail {
   width: 100%;
   height: 90px; /* 60% of 150px */
-  background: #eef2f6;
+  background: rgba(0, 0, 0, 0.02); /* 极淡的背景 */
   /* 移除单独的 border-radius，因为父容器 overflow:hidden */
   display: flex;
   align-items: center;

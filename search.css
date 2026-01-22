@@ -6,16 +6,23 @@
   transform: translateX(-50%);
   width: 600px;
   max-width: 90vw;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  /* 玻璃拟态背景 - 增强通透感 */
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border-radius: 16px; /* 统一圆角 */
+  /* 柔和阴影 */
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  /* 添加 1px 白色半透明边框 */
+  border: 1px solid rgba(255, 255, 255, 0.3);
   z-index: 2147483647;
   display: flex;
   flex-direction: column;
   padding: 16px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: #374151;
-  border: 1px solid #e5e7eb;
 }
 
 #search-container.hidden {
@@ -29,7 +36,7 @@
   align-items: center;
   margin-bottom: 12px;
   padding-bottom: 12px;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06); /* 更淡的分隔线 */
 }
 
 .search-icon {
@@ -44,17 +51,17 @@
   width: 100%;
   padding: 12px 12px 12px 44px;
   font-size: 16px;
-  border: none;
-  background: #f9fafb;
-  border-radius: 8px;
+  border: 1px solid transparent;
+  background: rgba(0, 0, 0, 0.03); /* 极淡的背景 */
+  border-radius: 10px;
   color: #111827;
   outline: none;
-  transition: box-shadow 0.2s;
+  transition: all 0.2s;
 }
 
 #search-input:focus {
-  box-shadow: 0 0 0 2px #3b82f6;
-  background: #fff;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* 聚焦时的光晕 */
 }
 
 .search-info-icon {
@@ -89,19 +96,19 @@
   display: flex;
   align-items: center;
   padding: 10px 12px;
-  border-radius: 6px;
+  border-radius: 8px; /* 稍微圆一点 */
   cursor: pointer;
-  transition: all 0.1s;
+  transition: all 0.15s ease;
   border: 1px solid transparent;
 }
 
 .search-item:hover {
-  background: #f3f4f6;
+  background: rgba(0, 0, 0, 0.03); /* 极淡的 hover 背景 */
 }
 
 .search-item.selected {
-  background: #5f9ea0; /* 类似于截图中的蓝绿色 */
-  color: white;
+  background: rgba(59, 130, 246, 0.12); /* 浅蓝色低饱和度背景 */
+  color: inherit; /* 保持原有文字颜色 */
 }
 
 .search-item-icon {
@@ -109,7 +116,7 @@
   height: 20px;
   margin-right: 12px;
   flex-shrink: 0;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 .search-item-content {
@@ -124,12 +131,18 @@
 .search-item-title {
   font-size: 14px;
   font-weight: 500;
+  color: #1f2937; /* 深色标题 */
   white-space: nowrap;
   /* 不强制截断标题，优先显示 */
   flex-shrink: 0; 
   max-width: 60%; /* 限制标题最大宽度 */
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* 选中状态下的标题颜色加深 */
+.search-item.selected .search-item-title {
+  color: #1e40af;
 }
 
 .search-item-url {
@@ -142,7 +155,7 @@
 }
 
 .search-item.selected .search-item-url {
-  color: rgba(255, 255, 255, 0.8);
+  color: #60a5fa; /* 选中时 URL 变蓝但保持柔和 */
 }
 
 .search-item-action {
@@ -153,10 +166,15 @@
   color: #9ca3af;
   margin-left: 12px;
   flex-shrink: 0;
+  opacity: 0; /* 默认隐藏操作提示 */
+  transition: opacity 0.2s;
 }
 
+/* 仅在选中或悬停时显示操作提示 */
+.search-item:hover .search-item-action,
 .search-item.selected .search-item-action {
-  color: rgba(255, 255, 255, 0.9);
+  opacity: 1;
+  color: #60a5fa;
 }
 
 .action-arrow {
