@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient x1="0" x2="1" id="Gradient" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset=".3096251" stop-color="#666ff6"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="Obj_Gradient" xl:href="#Gradient" gradientTransform="translate(12 12) rotate(45) scale(147.07821)"/>
+    <linearGradient x1="0" x2="1" id="Gradient_2" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3083ff"/>
+      <stop offset="1" stop-color="#9662d0"/>
+    </linearGradient>
+    <linearGradient id="Obj_Gradient_2" xl:href="#Gradient_2" gradientTransform="translate(83.20711 64.28883) rotate(90) scale(19.836557)"/>
+  </defs>
+  <g id="Canvas_1" stroke-dasharray="none" fill-opacity="1" stroke-opacity="1" fill="none" stroke="none">
+    <title>Canvas 1</title>
+    <g id="Canvas_1_Layer_1">
+      <title>Layer 1</title>
+      <g id="Graphic_2">
+        <path d="M 40 12 L 88 12 C 103.46397 12 116 24.536027 116 40 L 116 88 C 116 103.46397 103.46397 116 88 116 L 40 116 C 24.536027 116 12 103.46397 12 88 L 12 40 C 12 24.536027 24.536027 12 40 12 Z" fill="url(#Obj_Gradient)"/>
+      </g>
+      <g id="Group_5">
+        <g id="Graphic_8">
+          <circle cx="83.20711" cy="74.20711" r="12.2071252481761" fill="white"/>
+        </g>
+        <g id="Graphic_7">
+          <circle cx="83.20711" cy="74.20711" r="9.91828926414309" fill="url(#Obj_Gradient_2)"/>
+          <circle cx="83.20711" cy="74.20711" r="9.91828926414309" stroke="white" stroke-linecap="butt" stroke-linejoin="round" stroke-width="4.5"/>
+        </g>
+        <g id="Line_6">
+          <line x1="90.07361" y1="81.07361" x2="98.46599" y2="89.46599" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.5"/>
+        </g>
+      </g>
+      <g id="Group_30">
+        <g id="Graphic_16">
+          <path d="M 29 34.482993 L 76.5 34.482993 C 78.15685 34.482993 79.5 35.82614 79.5 37.482993 L 79.5 46.482993 C 79.5 48.13985 78.15685 49.482993 76.5 49.482993 L 29 49.482993 C 27.343146 49.482993 26 48.13985 26 46.482993 L 26 37.482993 C 26 35.82614 27.343146 34.482993 29 34.482993 Z" fill="white"/>
+        </g>
+        <g id="Graphic_28">
+          <path d="M 45.25 90.51701 L 45.25 47.482993 C 45.25 45.82614 46.593146 44.482993 48.25 44.482993 L 57.25 44.482993 C 58.906854 44.482993 60.25 45.82614 60.25 47.482993 L 60.25 90.51701 C 60.25 92.17386 58.906854 93.51701 57.25 93.51701 L 48.25 93.51701 C 46.593146 93.51701 45.25 92.17386 45.25 90.51701 Z" fill="white"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

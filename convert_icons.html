@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Icon Converter</title>
+</head>
+<body>
+  <h1>Icon Converter</h1>
+  <p>Loading SVG and converting to PNG...</p>
+  <div id="container"></div>
+  <script>
+    const sizes = [16, 48, 128];
+    const container = document.getElementById('container');
+    
+    const img = new Image();
+    img.onload = () => {
+      sizes.forEach(size => {
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, size, size);
+        
+        // Create download link
+        const a = document.createElement('a');
+        a.download = `icon${size}.png`;
+        a.href = canvas.toDataURL('image/png');
+        a.textContent = `Download icon${size}.png`;
+        a.style.display = 'block';
+        a.style.margin = '10px 0';
+        
+        container.appendChild(a);
+        
+        // Auto click to download (optional, might be blocked)
+        // a.click();
+      });
+      document.querySelector('p').textContent = 'Conversion complete. Click links to download.';
+    };
+    img.src = 'icon.svg';
+  </script>
+</body>
+</html>

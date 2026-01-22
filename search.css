@@ -1,0 +1,182 @@
+/* 搜索面板容器 */
+#search-container {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  max-width: 90vw;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  z-index: 2147483647;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+}
+
+#search-container.hidden {
+  display: none !important;
+}
+
+/* 搜索输入框区域 */
+.search-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #9ca3af;
+  width: 20px;
+  height: 20px;
+}
+
+#search-input {
+  width: 100%;
+  padding: 12px 12px 12px 44px;
+  font-size: 16px;
+  border: none;
+  background: #f9fafb;
+  border-radius: 8px;
+  color: #111827;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+#search-input:focus {
+  box-shadow: 0 0 0 2px #3b82f6;
+  background: #fff;
+}
+
+.search-info-icon {
+  position: absolute;
+  right: 12px;
+  color: #9ca3af;
+  width: 20px;
+  height: 20px;
+  cursor: help;
+}
+
+/* 列表区域 */
+#search-list {
+  max-height: 400px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#search-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+#search-list::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+/* 列表项 */
+.search-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.1s;
+  border: 1px solid transparent;
+}
+
+.search-item:hover {
+  background: #f3f4f6;
+}
+
+.search-item.selected {
+  background: #5f9ea0; /* 类似于截图中的蓝绿色 */
+  color: white;
+}
+
+.search-item-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+
+.search-item-content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row; /* 改为行布局 */
+  align-items: baseline; /* 底部对齐或基线对齐 */
+  gap: 8px;
+}
+
+.search-item-title {
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  /* 不强制截断标题，优先显示 */
+  flex-shrink: 0; 
+  max-width: 60%; /* 限制标题最大宽度 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-item-url {
+  font-size: 12px;
+  color: #9ca3af; /* 更浅的颜色 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1; /* URL 占据剩余空间并截断 */
+}
+
+.search-item.selected .search-item-url {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.search-item-action {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #9ca3af;
+  margin-left: 12px;
+  flex-shrink: 0;
+}
+
+.search-item.selected .search-item-action {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.action-arrow {
+  width: 16px;
+  height: 16px;
+}
+
+/* 底部工具栏 */
+.search-footer {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.footer-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}

@@ -1,0 +1,59 @@
+{
+  "appName": {
+    "message": "Tab Switcher & Search"
+  },
+  "appDesc": {
+    "message": "Efficient tab switcher and all-in-one search panel. Supports custom shortcuts."
+  },
+  "searchPlaceholder": {
+    "message": "Search tabs, bookmarks or enter URL..."
+  },
+  "noResults": {
+    "message": "No results found"
+  },
+  "switchToTab": {
+    "message": "Switch to Tab"
+  },
+  "openLink": {
+    "message": "Open Link"
+  },
+  "searchWeb": {
+    "message": "Search Web"
+  },
+  "settingsTitle": {
+    "message": "Tab Switcher Settings"
+  },
+  "shortcutGroupTitle": {
+    "message": "Shortcut Settings"
+  },
+  "shortcutTabTitle": {
+    "message": "Switch Tab Shortcut"
+  },
+  "shortcutTabDesc": {
+    "message": "Used to activate the quick tab switching list"
+  },
+  "shortcutSearchTitle": {
+    "message": "Search Panel Shortcut"
+  },
+  "shortcutSearchDesc": {
+    "message": "Used to open the search panel (search tabs, bookmarks, history)"
+  },
+  "recording": {
+    "message": "Recording..."
+  },
+  "searchEngineTitle": {
+    "message": "Search Engine Settings"
+  },
+  "searchEngineDesc": {
+    "message": "Search engine to use when no local content matches"
+  },
+  "searchEngineHint": {
+    "message": "Enter search engine URL, use %s as placeholder for keywords"
+  },
+  "save": {
+    "message": "Save Settings"
+  },
+  "saved": {
+    "message": "Saved successfully!"
+  }
+}

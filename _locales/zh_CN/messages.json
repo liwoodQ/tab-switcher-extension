@@ -1,0 +1,59 @@
+{
+  "appName": {
+    "message": "标签页切换 & 搜索助手"
+  },
+  "appDesc": {
+    "message": "高效的标签页切换器与全能搜索面板。支持自定义快捷键。"
+  },
+  "searchPlaceholder": {
+    "message": "搜索标签页、书签或输入网址..."
+  },
+  "noResults": {
+    "message": "未找到相关结果"
+  },
+  "switchToTab": {
+    "message": "Switch"
+  },
+  "openLink": {
+    "message": "Open"
+  },
+  "searchWeb": {
+    "message": "Search"
+  },
+  "settingsTitle": {
+    "message": "插件设置"
+  },
+  "shortcutGroupTitle": {
+    "message": "快捷键设置"
+  },
+  "shortcutTabTitle": {
+    "message": "标签页切换快捷键"
+  },
+  "shortcutTabDesc": {
+    "message": "用于激活快速切换列表"
+  },
+  "shortcutSearchTitle": {
+    "message": "搜索面板快捷键"
+  },
+  "shortcutSearchDesc": {
+    "message": "用于打开搜索面板 (搜索标签、书签、历史)"
+  },
+  "recording": {
+    "message": "录制中..."
+  },
+  "searchEngineTitle": {
+    "message": "搜索引擎设置"
+  },
+  "searchEngineDesc": {
+    "message": "当本地内容未匹配时使用的搜索引擎"
+  },
+  "searchEngineHint": {
+    "message": "请输入搜索引擎 URL，使用 %s 作为搜索关键词的占位符"
+  },
+  "save": {
+    "message": "保存设置"
+  },
+  "saved": {
+    "message": "保存成功！"
+  }
+}

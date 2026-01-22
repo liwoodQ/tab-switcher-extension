@@ -1,0 +1,322 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>__MSG_settingsTitle__</title>
+    <link rel="icon" type="image/svg+xml" href="icon.svg" />
+    <style>
+      :root {
+        --primary-color: #3b82f6;
+        --primary-hover: #2563eb;
+        --bg-color: #f9fafb;
+        --card-bg: #ffffff;
+        --text-main: #111827;
+        --text-secondary: #6b7280;
+        --border-color: #e5e7eb;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        margin: 0;
+        padding: 40px;
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+        /* 移除强制最小宽度和隐藏滚动条，让布局自适应 */
+        box-sizing: border-box;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 700px; /* 稍微减小最大宽度，使其在各种屏幕上更协调 */
+        background: var(--card-bg);
+        border-radius: 16px;
+        box-shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        padding: 40px; /* 恢复适中的 padding */
+        height: fit-content;
+        box-sizing: border-box;
+      }
+
+      /* 链接样式 */
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .command-shortcut-info {
+        background: #eff6ff;
+        border-left: 4px solid var(--primary-color);
+        padding: 12px 16px;
+        border-radius: 0 8px 8px 0;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #1e40af;
+        line-height: 1.6;
+        white-space: nowrap; /* 强制不换行 */
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* 顶部标题栏 */
+      .header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 32px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .app-icon {
+        width: 48px;
+        height: 48px;
+        /* 移除背景和文字样式，改为纯图片展示 */
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        overflow: hidden;
+      }
+
+      .app-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      h1 {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0;
+        color: var(--text-main);
+        line-height: 1.2;
+      }
+
+      .subtitle {
+        font-size: 14px;
+        color: var(--text-secondary);
+        margin-top: 4px;
+      }
+
+      /* 设置组 */
+      .setting-group {
+        margin-bottom: 32px;
+      }
+
+      .group-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 16px;
+        color: var(--text-main);
+      }
+
+      /* 快捷键录制器 */
+      .shortcut-wrapper {
+        background: #f3f4f6;
+        border-radius: 12px;
+        padding: 6px;
+        border: 2px solid transparent;
+        transition: all 0.2s ease;
+      }
+
+      .shortcut-wrapper:focus-within {
+        background: #fff;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+      }
+
+      .shortcut-recorder {
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        outline: none;
+        transition: all 0.2s;
+      }
+
+      .shortcut-recorder:hover {
+        border-color: #d1d5db;
+      }
+
+      #shortcut-display {
+        font-family: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text-main);
+        flex: 1;
+        letter-spacing: 0.5px;
+      }
+
+      .hint {
+        font-size: 14px;
+        color: var(--text-secondary);
+        margin-top: 12px;
+        line-height: 1.5;
+        white-space: nowrap; /* 强制不换行 */
+      }
+
+      /* 底部按钮栏 */
+      .footer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 16px;
+        margin-top: 40px;
+      }
+
+      button {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 600;
+        transition: all 0.2s;
+        box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+      }
+
+      button:hover {
+        background: var(--primary-hover);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      .status {
+        font-size: 14px;
+        color: #059669;
+        background: #ecfdf5;
+        padding: 8px 12px;
+        border-radius: 6px;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .status.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* 键盘按键样式 (在 JS 中生成) */
+      .kbd-key {
+        display: inline-block;
+        padding: 4px 8px;
+        font-size: 14px;
+        line-height: 1;
+        color: #4b5563;
+        vertical-align: middle;
+        background-color: #f3f4f6;
+        border: 1px solid #d1d5db;
+        border-radius: 4px;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        margin: 0 2px;
+        font-family: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="app-icon">
+          <img src="icon.svg" alt="App Icon" />
+        </div>
+        <div>
+          <h1 id="i18n-appName">Tab Switcher & Search</h1>
+          <div class="subtitle" id="i18n-settingsTitle">插件设置</div>
+        </div>
+      </div>
+
+      <div class="setting-group">
+        <div class="group-title" id="i18n-shortcutTabTitle">标签页切换快捷键</div>
+        <div class="subtitle" style="margin-bottom: 12px" id="i18n-shortcutTabDesc">用于唤出横向标签页预览面板</div>
+        <div class="shortcut-wrapper">
+          <div id="recorder-tab" class="shortcut-recorder" tabindex="0">
+            <span id="shortcut-display-tab">Option + TAB</span>
+          </div>
+        </div>
+        <div class="hint">
+          点击上方区域，然后按下你想要的组合键 (推荐: <span class="kbd-key">Option</span> + 任意键)
+        </div>
+      </div>
+
+      <div class="setting-group">
+        <div class="group-title" id="i18n-shortcutSearchTitle">搜索面板快捷键</div>
+        <div class="subtitle" style="margin-bottom: 12px" id="i18n-shortcutSearchDesc">
+          用于唤出全能搜索面板 (标签页、书签、网址)
+        </div>
+        <div class="shortcut-wrapper">
+          <div id="recorder-search" class="shortcut-recorder" tabindex="0">
+            <span id="shortcut-display-search">Command + Shift + K</span>
+          </div>
+        </div>
+        <div class="hint">
+          点击上方区域，然后按下你想要的组合键 (推荐: <span class="kbd-key">Command</span> +
+          <span class="kbd-key">Shift</span> + <span class="kbd-key">K</span>)
+        </div>
+      </div>
+
+      <div class="setting-group">
+        <div class="group-title" id="i18n-searchEngineTitle">搜索引擎设置</div>
+        <div class="subtitle" style="margin-bottom: 12px" id="i18n-searchEngineDesc">
+          当本地内容未匹配时使用的搜索引擎
+        </div>
+        <div class="shortcut-wrapper" style="padding: 12px; background: #fff; border: 1px solid var(--border-color)">
+          <input
+            type="text"
+            id="search-engine-url"
+            placeholder="https://www.google.com/search?q=%s"
+            style="
+              width: 100%;
+              padding: 8px;
+              border: 1px solid #d1d5db;
+              border-radius: 6px;
+              font-size: 14px;
+              outline: none;
+              box-sizing: border-box;
+            "
+          />
+        </div>
+        <div class="hint" id="i18n-searchEngineHint">
+          请输入搜索引擎 URL，使用 <span class="kbd-key">%s</span> 作为搜索关键词的占位符
+        </div>
+      </div>
+
+      <div class="footer">
+        <button id="save">保存设置</button>
+        <div id="status" class="status">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <span id="i18n-saved">设置已保存</span>
+        </div>
+      </div>
+    </div>
+
+    <script src="options.js"></script>
+  </body>
+</html>
